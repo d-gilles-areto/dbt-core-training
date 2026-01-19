@@ -74,6 +74,7 @@
    &rarr; Der Profilname (hier: `dbt_project`) muss zum `profile:` Eintrag in `dbt_project/dbt_project.yml` passen.
 
    > Hinweis: `schema:` dev wird in der DB als Schema angelegt und benutzt. Falls ein anderes Schema gewünscht ist, muss der Wert angepasst werden.
+   
    > Hinweis: Wie unter `target` konfiguriert, ist das Standard-Target `dev`. Es wird ein weiteres `target: sources` spezifiziert - dieses wird ausschließlich zum Einmaligen Laden der Daten benötigt.
 
 ---
