@@ -1,0 +1,10 @@
+sources:
+  - name: tpch_data
+    database: postgres
+    schema: sources
+    tables:
+      - name: customer_tpch
+      - name: lineitem_tpch
+      - name: nation_tpch
+      - name: orders_tpch
+      - name: region_tpch

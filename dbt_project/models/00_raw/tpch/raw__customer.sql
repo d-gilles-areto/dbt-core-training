@@ -1,0 +1,1 @@
+select * from {{ source('tpch_data', 'customer_tpch') }}
