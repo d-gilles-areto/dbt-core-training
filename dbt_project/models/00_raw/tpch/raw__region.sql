@@ -1,1 +1,0 @@
-select * from {{ source('tpch_data', 'region_tpch') }}

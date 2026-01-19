@@ -1,5 +1,5 @@
 sources:
-  - name: tpch_data
+  - name: tpch
     database: postgres
     schema: sources
     tables:
