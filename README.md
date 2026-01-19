@@ -49,32 +49,32 @@
 
    ```yaml
    dbt_project:
-     outputs:
-       sources:
-         dbname: postgres
-         host: localhost
-         pass: admin
-         port: 5432
-         schema: sources
-         threads: 1
-         type: postgres
-         user: postgres
-       dev:
-         dbname: postgres
-         host: localhost
-         pass: admin
-         port: 5432
-         schema: dev
-         threads: 1
-         type: postgres
-         user: postgres
-   target: dev
+      outputs:
+         sources:
+            dbname: postgres
+            host: localhost
+            pass: admin
+            port: 5432
+            schema: sources
+            threads: 1
+            type: postgres
+            user: postgres
+         dev:
+            dbname: postgres
+            host: localhost
+            pass: admin
+            port: 5432
+            schema: dev
+            threads: 1
+            type: postgres
+            user: postgres
+      target: dev
    ```
    
    &rarr; Der Profilname (hier: `dbt_project`) muss zum `profile:` Eintrag in `dbt_project/dbt_project.yml` passen.
 
    > Hinweis: `schema:` dev wird in der DB als Schema angelegt und benutzt. Falls ein anderes Schema gewünscht ist, muss der Wert angepasst werden.
-   
+
    > Hinweis: Wie unter `target` konfiguriert, ist das Standard-Target `dev`. Es wird ein weiteres `target: sources` spezifiziert - dieses wird ausschließlich zum Einmaligen Laden der Daten benötigt.
 
 ---
