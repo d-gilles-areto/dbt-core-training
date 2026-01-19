@@ -68,8 +68,9 @@
          threads: 1
          type: postgres
          user: postgres
-  target: dev
+   target: dev
    ```
+   
    &rarr; Der Profilname (hier: `dbt_project`) muss zum `profile:` Eintrag in `dbt_project/dbt_project.yml` passen.
 
    > Hinweis: `schema:` dev wird in der DB als Schema angelegt und benutzt. Falls ein anderes Schema gewünscht ist, muss der Wert angepasst werden.
