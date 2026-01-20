@@ -40,4 +40,4 @@ models:
       +materialized: view
 
     30_marts:
-      +materialized: view
+      +materialized: table
