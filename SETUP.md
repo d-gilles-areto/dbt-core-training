@@ -53,37 +53,35 @@ Ist dies der Fall, sollte der Kunde die Dateien aus `./dbt_project/seeds/` selbs
 
    dbt erwartet ein `profiles.yml` standardmäßig unter `C:\Users\<User>\.dbt\`.
 
-   Dies ist ein Template für das profile.yml - sollte die lokale PostgreSQL wie oben dargestellt angelegt worden sein, kann das Profil so übernommen werden.
+   Dies ist ein **Template** für das profile.yml - sollte die lokale PostgreSQL wie oben dargestellt angelegt worden sein, kann das Profil so übernommen werden.
 
    ```yaml
    dbt_project:
       outputs:
-         sources:
+         sources: # <-- Bitte nicht verändern
             dbname: postgres
             host: localhost
             pass: admin
             port: 5432
-            schema: sources
+            schema: sources   # <-- Bitte nicht verändern
             threads: 1
             type: postgres
             user: postgres
-         dev:
+         dev:  # <-- Bitte nicht verändern
             dbname: postgres
             host: localhost
             pass: admin
             port: 5432
-            schema: dev
+            schema: sotte  # <-- Developer Präfix hier einsetzen
             threads: 1
             type: postgres
             user: postgres
-      target: dev
+      target: dev # <-- Bitte nicht verändern
    ```
    
-   &rarr; Der Profilname (hier: `dbt_project`) muss zum `profile:` Eintrag in `dbt_project/dbt_project.yml` passen.
+   > Hinweis: In dem Profil `dev:` sollte unter `schema:` ein individueller Developer-Kürzel eingetragen werden.
 
-   > Hinweis: `schema:` dev wird in der DB als Schema angelegt und benutzt. Falls ein anderes Schema gewünscht ist, muss der Wert angepasst werden.
-
-   > Hinweis: Wie unter `target` konfiguriert, ist das Standard-Target `dev`. Es wird ein weiteres `target: sources` spezifiziert - dieses wird ausschließlich zum Einmaligen Laden der Daten benötigt.
+   > Hinweis: Wie unter `target` konfiguriert, ist das Standard-Target `dev`. Es wird ein weiteres `target: sources` spezifiziert - dieses wird ausschließlich zum Einmaligen Laden der Workshop-Daten benötigt.
 
 ---
 
