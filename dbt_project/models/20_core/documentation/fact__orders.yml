@@ -1,65 +1,46 @@
 models:
-  - name: fact__order_lines
-    description: "Fakten-Tabelle auf Order-Line-Grain. Feinste Granularität mit berechneten KPIs. Materialisiert als Incremental (Merge)."
+  - name: fact__orders
+    description: "Fakten-Tabelle auf Order-Grain. Enthält aggregierte Kennzahlen aus Order Lines. Materialisiert als Incremental (Merge)."
 
     columns:
-      - name: orderkey
-        description: "Fremdschlüssel zur Bestellung"
+      - name: order_id
+        description: "Primärschlüssel der Bestellung"
         data_tests:
+          - unique
           - not_null
 
-      - name: linenumber
-        description: "Positionsnummer"
-        data_tests:
-          - not_null
-
-      - name: custkey
+      - name: customer_id
         description: "Fremdschlüssel zum Kunden"
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim__customer')
+                field: customer_id
 
-      - name: orderdate
+      - name: order_date
         description: "Bestelldatum"
 
-      - name: shipdate
-        description: "Versanddatum"
+      - name: order_status
+        description: "Status der Bestellung"
 
-      - name: commitdate
-        description: "Zusagedatum"
+      - name: order_priority
+        description: "Bestellpriorität"
 
-      - name: receiptdate
-        description: "Eingangsdatum"
-
-      - name: quantity
-        description: "Bestellmenge"
+      - name: order_line_count
+        description: "Anzahl der Positionen in der Bestellung"
         data_tests:
           - not_negative
 
-      - name: extendedprice
-        description: "Erweiterter Preis"
+      - name: order_net_amount
+        description: "Gesamter Nettobetrag der Bestellung"
         data_tests:
           - not_negative
 
-      - name: discount
-        description: "Rabatt"
+      - name: order_discount_amount
+        description: "Gesamter Rabattbetrag der Bestellung"
 
-      - name: tax
-        description: "Steuersatz"
-
-      - name: net_amount
-        description: "Nettobetrag der Position (extendedprice * (1 - discount))"
-        data_tests:
-          - not_negative
-
-      - name: discount_amount
-        description: "Rabattbetrag der Position (extendedprice * discount)"
-
-      - name: net_amount_incl_tax
+      - name: order_net_amount_incl_tax
         description: "Nettobetrag inkl. Steuer"
 
-      - name: is_late_shipment
-        description: "True, wenn shipdate > commitdate"
-
-      - name: days_to_ship
-        description: "Tage zwischen Bestelldatum und Versanddatum"
-
-      - name: days_to_receive
-        description: "Tage zwischen Bestelldatum und Eingangsdatum"
+      - name: has_late_shipment
+        description: "True, wenn mindestens eine Position verspätet versendet wurde"

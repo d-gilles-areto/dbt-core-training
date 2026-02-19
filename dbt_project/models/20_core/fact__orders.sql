@@ -1,7 +1,7 @@
 {{ config(
     materialized = 'incremental',
     incremental_strategy = 'merge',
-    unique_key = 'orderkey'
+    unique_key = 'order_id'
 	) 
 }}
 
@@ -11,14 +11,14 @@ WITH orders AS (
 
 line_aggs AS (
     SELECT
-        orderkey,
+        order_id,
         COUNT(*) AS order_line_count,
         SUM(net_amount) AS order_net_amount,
         SUM(discount_amount) AS order_discount_amount,
         SUM(net_amount_incl_tax) AS order_net_amount_incl_tax,
         MAX(CASE WHEN is_late_shipment = TRUE THEN 1 ELSE 0 END) = 1 AS has_late_shipment
     FROM {{ ref('fact__order_lines') }}
-    	GROUP BY orderkey
+    GROUP BY order_id
 )
 
 SELECT
@@ -33,8 +33,8 @@ SELECT
     line_aggs.order_net_amount_incl_tax,
     line_aggs.has_late_shipment
 FROM orders
-    LEFT JOIN line_aggs ON orders.orderkey = line_aggs.orderkey
+    LEFT JOIN line_aggs ON orders.orderkey = line_aggs.order_id
 
 {% if is_incremental() %}
-    WHERE orders.orderdate > (SELECT MAX(orderdate) FROM {{ this }})
+    WHERE orders.orderdate > (SELECT MAX(order_date) FROM {{ this }})
 {% endif %}

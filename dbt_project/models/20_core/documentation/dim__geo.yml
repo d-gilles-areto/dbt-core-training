@@ -3,7 +3,7 @@ models:
     description: "Konforme Geografie-Dimension: Nation + Region konsolidiert."
 
     columns:
-      - name: nationkey
+      - name: nation_id
         description: "Primärschlüssel der Nation"
         data_tests:
           - unique
