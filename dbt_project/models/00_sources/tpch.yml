@@ -1,6 +1,5 @@
 sources:
   - name: tpch
-    database: postgres
     schema: sources
     tables:
       - name: customer_tpch
@@ -8,3 +7,6 @@ sources:
       - name: nation_tpch
       - name: orders_tpch
       - name: region_tpch
+      - name: part_tpch
+      - name: partsupp_tpch
+      - name: supplier_tpch

@@ -1,0 +1,112 @@
+version: 2
+
+models:
+  - name: stg__customer
+    description: "Staging-View für TPCH Customer. Präfixe entfernt, 1:1 Abbildung der Quelldaten."
+    columns:
+      - name: custkey
+        description: "Primärschlüssel des Kunden (TPCH: c_custkey)"
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: "Name des Kunden"
+      - name: mktsegment
+        description: "Marktsegment des Kunden (z.B. AUTOMOBILE, BUILDING)"
+      - name: nationkey
+        description: "Fremdschlüssel zur Nation"
+      - name: address
+        description: "Adresse des Kunden"
+      - name: phone
+        description: "Telefonnummer des Kunden"
+      - name: acctbal
+        description: "Kontostand des Kunden"
+      - name: comment
+        description: "Kommentar"
+
+  - name: stg__orders
+    description: "Staging-View für TPCH Orders. Präfixe entfernt."
+    columns:
+      - name: orderkey
+        description: "Primärschlüssel der Bestellung"
+        tests:
+          - unique
+          - not_null
+      - name: custkey
+        description: "Fremdschlüssel zum Kunden"
+      - name: orderdate
+        description: "Bestelldatum"
+      - name: orderstatus
+        description: "Status der Bestellung (O=Open, F=Filled, P=Pending)"
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['O', 'F', 'P']
+      - name: orderpriority
+        description: "Bestellpriorität"
+      - name: shippriority
+        description: "Versandpriorität"
+      - name: clerk
+        description: "Sachbearbeiter"
+      - name: comment
+        description: "Kommentar"
+
+  - name: stg__lineitem
+    description: "Staging-View für TPCH Line Items. Präfixe entfernt."
+    columns:
+      - name: orderkey
+        description: "Fremdschlüssel zur Bestellung"
+        tests:
+          - not_null
+      - name: linenumber
+        description: "Positionsnummer innerhalb der Bestellung"
+        tests:
+          - not_null
+      - name: quantity
+        description: "Bestellmenge"
+      - name: extendedprice
+        description: "Erweiterter Preis (Menge × Stückpreis)"
+      - name: discount
+        description: "Rabatt (0.00 - 0.10)"
+      - name: tax
+        description: "Steuersatz (0.00 - 0.08)"
+      - name: shipdate
+        description: "Versanddatum"
+      - name: commitdate
+        description: "Zusagedatum"
+      - name: receiptdate
+        description: "Eingangsdatum"
+      - name: shipmode
+        description: "Versandart (AIR, SHIP, TRUCK, etc.)"
+      - name: returnflag
+        description: "Rückgabestatus (A, N, R)"
+      - name: linestatus
+        description: "Positionsstatus (O=Open, F=Filled)"
+
+  - name: stg__nation
+    description: "Staging-View für TPCH Nation. Präfixe entfernt."
+    columns:
+      - name: nationkey
+        description: "Primärschlüssel der Nation"
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: "Name des Landes"
+      - name: regionkey
+        description: "Fremdschlüssel zur Region"
+      - name: comment
+        description: "Kommentar"
+
+  - name: stg__region
+    description: "Staging-View für TPCH Region. Präfixe entfernt."
+    columns:
+      - name: regionkey
+        description: "Primärschlüssel der Region"
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: "Name der Region"
+      - name: comment
+        description: "Kommentar"
