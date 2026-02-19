@@ -1,9 +1,9 @@
--- Dieser Test prüft, ob jeder orderkey in fact__orders nur einmal vorkommt.
+-- Dieser Test prüft, ob jeder order_id in fact__orders nur einmal vorkommt.
 -- Wenn Rows zurückkommen, gibt es Duplikate.
 
 SELECT
-    orderkey,
+    order_id,
     COUNT(*) AS row_count
 FROM {{ ref('fact__orders') }}
-    GROUP BY orderkey
+    GROUP BY order_id
         HAVING COUNT(*) > 1
