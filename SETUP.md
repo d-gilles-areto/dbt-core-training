@@ -15,15 +15,21 @@ Ist dies der Fall, sollte das IT-Team die Dateien aus `./dbt_project/seeds/` in 
   - Port: `5432`
   - User: `postgres`
   - Passwort: `admin`
+  - Database: `workshop` (manuell anlegen nach Installation)
 
 > Hinweis: Bei abweichendem Port die Werte im `profiles.yml` anpassen.
 
-### Option B: Docker (nur Entwickler-Testing)
+### Option B: Docker (Entwickler & Testing)
 
 ```bash
 cd postgres_container
 docker compose up -d
 ```
+
+Die Docker-Umgebung erstellt automatisch:
+- Database: `workshop`
+- Schema: `sources` (für Seeds)
+- Container-Name: `dbt_workshop_postgres`
 
 Stoppen:
 
@@ -38,20 +44,22 @@ Download: https://dbeaver.io/download/
 
 - Host: `localhost`
 - Port: `5432`
-- Database: `postgres`
+- Database: `workshop`
 - User: `postgres`
 - Password: `admin`
 
 ## 3) dbt installieren (pro Betriebssystem)
 
-Voraussetzung: Python 3.10+ (empfohlen 3.10)
+Voraussetzung: Python 3.10+ (empfohlen 3.11 oder 3.12)
+
+> **Hinweis:** Python 3.12+ erfordert dbt-postgres >= 1.9.0 (ältere Versionen haben Kompatibilitätsprobleme)
 
 Alle Befehle im Repo-Root ausführen (nicht im Unterordner `dbt_project`).
 
 ### Windows (PowerShell)
 
 ```powershell
-py -3.10 -m venv .venv
+py -3.11 -m venv .venv
 . .venv/Scripts/activate
 pip install -r requirements.txt
 cd dbt_project
@@ -96,7 +104,7 @@ Template:
 dbt_project:
   outputs:
     sources:
-      dbname: postgres
+      dbname: workshop
       host: localhost
       pass: admin
       port: 5432
@@ -105,7 +113,7 @@ dbt_project:
       type: postgres
       user: postgres
     dev:
-      dbname: postgres
+      dbname: workshop
       host: localhost
       pass: admin
       port: 5432
