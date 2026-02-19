@@ -83,6 +83,8 @@ $ source .venv/bin/activate
 $ pip install -r requirements.txt
 ```
 
+> Empfehlung: Für die Workshop-Umgebung bitte `dbt-core==1.11.4` und `dbt-postgres==1.11.4` verwenden (konsistent pinnen), um Adapter/Core-Inkompatibilitäten zu vermeiden.
+
 
 
 ## 4) dbt Profil initialisieren (`profiles.yml`)
