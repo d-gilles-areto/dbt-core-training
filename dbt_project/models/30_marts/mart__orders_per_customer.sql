@@ -13,8 +13,7 @@ SELECT
     EXTRACT(YEAR FROM orders.orderdate) AS order_year,
     COUNT(*) AS total_orders
 FROM orders
-    LEFT JOIN customer
-        ON orders.custkey = customer.customer_id
+    LEFT JOIN customer ON orders.customer_id = customer.customer_id
 GROUP BY
     customer.customer_id,
     customer.customer_name,

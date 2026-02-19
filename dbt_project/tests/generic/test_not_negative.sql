@@ -3,6 +3,6 @@
 SELECT
     {{ column_name }}
 FROM {{ model }}
-WHERE {{ column_name }} < 0
+    WHERE {{ column_name }} < 0
 
 {% endtest %}

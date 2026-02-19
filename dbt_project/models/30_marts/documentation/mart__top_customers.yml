@@ -1,0 +1,28 @@
+models:
+  - name: mart__top_customers
+    description: "Top-Kunden nach Umsatz mit geografischem Kontext."
+
+    columns:
+      - name: customer_id
+        description: "Kunden-ID"
+
+      - name: customer_name
+        description: "Kundenname"
+
+      - name: market_segment
+        description: "Marktsegment"
+
+      - name: nation
+        description: "Land"
+
+      - name: region
+        description: "Region"
+
+      - name: total_orders
+        description: "Gesamtanzahl der Bestellungen"
+
+      - name: total_revenue
+        description: "Gesamtumsatz"
+
+      - name: avg_order_value
+        description: "Durchschnittlicher Bestellwert"

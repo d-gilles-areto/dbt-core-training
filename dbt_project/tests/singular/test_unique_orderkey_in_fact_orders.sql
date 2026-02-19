@@ -5,5 +5,5 @@ SELECT
     orderkey,
     COUNT(*) AS row_count
 FROM {{ ref('fact__orders') }}
-GROUP BY orderkey
-HAVING COUNT(*) > 1
+    GROUP BY orderkey
+        HAVING COUNT(*) > 1

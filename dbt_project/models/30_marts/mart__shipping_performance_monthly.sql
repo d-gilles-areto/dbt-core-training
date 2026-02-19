@@ -6,5 +6,5 @@ SELECT
     ROUND(AVG(days_to_ship), 1) AS avg_days_to_ship,
     SUM(net_amount) AS revenue_net
 FROM {{ ref('fact__order_lines') }}
-GROUP BY DATE_TRUNC('month', shipdate)
-ORDER BY ship_month
+    GROUP BY DATE_TRUNC('month', shipdate)
+    ORDER BY ship_month

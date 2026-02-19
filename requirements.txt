@@ -1,3 +1,2 @@
-# dbt-postgres 1.9.x required for Python 3.12+ compatibility
-# (dbt-core 1.5.x has distutils dependency removed in Python 3.12)
-dbt-postgres~=1.9.0
+dbt-postgres == 1.10.0
+dbt-core == 1.11.4

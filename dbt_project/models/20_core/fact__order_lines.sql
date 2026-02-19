@@ -1,8 +1,9 @@
 {{ config(
-    materialized='incremental',
-    incremental_strategy='merge',
-    unique_key=['orderkey', 'linenumber']
-) }}
+    materialized = 'incremental',
+    incremental_strategy = 'merge',
+    unique_key = ['orderkey', 'linenumber']
+	) 
+}}
 
 WITH orders AS (
     SELECT * FROM {{ ref('stg__orders') }}
@@ -13,9 +14,9 @@ lines AS (
 )
 
 SELECT
-    lines.orderkey,
+    lines.orderkey AS order_id,
     lines.linenumber,
-    orders.custkey,
+    orders.custkey AS customer_id,
 
     orders.orderdate,
     lines.shipdate,
@@ -34,21 +35,20 @@ SELECT
     lines.discount,
     lines.tax,
 
-    lines.extendedprice * (1 - lines.discount)                      AS net_amount,
-    lines.extendedprice * lines.discount                             AS discount_amount,
-    (lines.extendedprice * (1 - lines.discount)) * (1 + lines.tax)  AS net_amount_incl_tax,
+    lines.extendedprice * (1 - lines.discount) AS net_amount,
+    lines.extendedprice * lines.discount AS discount_amount,
+    (lines.extendedprice * (1 - lines.discount)) * (1 + lines.tax) AS net_amount_incl_tax,
 
     CASE
         WHEN lines.shipdate > lines.commitdate THEN true
-        ELSE false
+        	ELSE false
     END AS is_late_shipment,
 
-    (lines.shipdate - orders.orderdate)    AS days_to_ship,
+    (lines.shipdate - orders.orderdate) AS days_to_ship,
     (lines.receiptdate - orders.orderdate) AS days_to_receive
 
 FROM lines
-    LEFT JOIN orders
-        ON lines.orderkey = orders.orderkey
+    LEFT JOIN orders ON lines.orderkey = orders.orderkey
 
 {% if is_incremental() %}
     WHERE lines.shipdate > (SELECT MAX(shipdate) FROM {{ this }})

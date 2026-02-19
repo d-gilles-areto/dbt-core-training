@@ -7,10 +7,4 @@ SELECT
     c_phone AS phone,
     c_acctbal AS acctbal,
     c_comment AS comment
-FROM {{ source('tpch', 'customer_tpch') }}
-
--- bisherige Namenskonvention: c_ Präfix entfernt
-    -- sobald die Cases und Aufgaben definiert haben, können wir Namenskonventon erweitern
-        -- snake_case für Spalten
-        -- Abkürzungen ausschreiben
-        -- id statt key
+FROM {{ ref('snap__customer') }} -- Nachdem die Quelle für Customers über den Snapshot (./snapshots/snap__customer.sql) gem. SCD2 historisiert wurde, wollen wir nun die historisierte Quelle in der weiteren Pipeline benutzen.

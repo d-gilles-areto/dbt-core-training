@@ -1,0 +1,31 @@
+models:
+  - name: dim__customer
+    description: "Kundendimension mit geografischem Kontext (Nation, Region)."
+
+    columns:
+      - name: customer_id
+        description: "Primärschlüssel des Kunden"
+        data_tests:
+          - unique
+          - not_null
+
+      - name: customer_name
+        description: "Vollständiger Kundenname"
+
+      - name: address
+        description: "Adresse des Kunden"
+
+      - name: phone
+        description: "Telefonnummer"
+
+      - name: account_balance
+        description: "Kontostand"
+
+      - name: market_segment
+        description: "Marktsegment (AUTOMOBILE, BUILDING, etc.)"
+
+      - name: customer_comment
+        description: "Kommentar zum Kunden"
+
+      - name: nation_id
+        description: "Fremdschlüssel zur Nation (nationkey)"

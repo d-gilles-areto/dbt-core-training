@@ -1,0 +1,31 @@
+models:
+  - name: stg__customer
+    description: "Staging-View für TPCH Customer. Präfixe entfernt, 1:1 Abbildung der Quelldaten."
+
+    columns:
+      - name: custkey
+        description: "Primärschlüssel des Kunden"
+        data_tests:
+          - unique
+          - not_null
+
+      - name: name
+        description: "Name des Kunden"
+
+      - name: mktsegment
+        description: "Marktsegment des Kunden (z.B. AUTOMOBILE, BUILDING)"
+
+      - name: nationkey
+        description: "Fremdschlüssel zur Nation"
+
+      - name: address
+        description: "Adresse des Kunden"
+
+      - name: phone
+        description: "Telefonnummer des Kunden"
+
+      - name: acctbal
+        description: "Kontostand des Kunden"
+
+      - name: comment
+        description: "Kommentar"

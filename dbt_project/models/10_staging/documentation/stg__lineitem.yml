@@ -1,0 +1,44 @@
+models:
+  - name: stg__lineitem
+    description: "Staging-View für TPCH Line Items. Präfixe entfernt."
+
+    columns:
+      - name: orderkey
+        description: "Fremdschlüssel zur Bestellung"
+        data_tests:
+          - not_null
+
+      - name: linenumber
+        description: "Positionsnummer innerhalb der Bestellung"
+        data_tests:
+          - not_null
+
+      - name: quantity
+        description: "Bestellmenge"
+
+      - name: extendedprice
+        description: "Erweiterter Preis (Menge x Stückpreis)"
+
+      - name: discount
+        description: "Rabatt (0.00 - 0.10)"
+
+      - name: tax
+        description: "Steuersatz (0.00 - 0.08)"
+
+      - name: shipdate
+        description: "Versanddatum"
+
+      - name: commitdate
+        description: "Zusagedatum"
+
+      - name: receiptdate
+        description: "Eingangsdatum"
+
+      - name: shipmode
+        description: "Versandart (AIR, SHIP, TRUCK, etc.)"
+
+      - name: returnflag
+        description: "Rückgabestatus (A, N, R)"
+
+      - name: linestatus
+        description: "Positionsstatus (O=Open, F=Filled)"

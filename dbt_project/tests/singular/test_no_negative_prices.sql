@@ -7,5 +7,5 @@ SELECT
     extendedprice,
     net_amount
 FROM {{ ref('fact__order_lines') }}
-WHERE net_amount < 0
-   OR extendedprice < 0
+    WHERE net_amount < 0
+        OR extendedprice < 0

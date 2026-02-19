@@ -1,0 +1,65 @@
+models:
+  - name: fact__order_lines
+    description: "Fakten-Tabelle auf Order-Line-Grain. Feinste Granularität mit berechneten KPIs. Materialisiert als Incremental (Merge)."
+
+    columns:
+      - name: orderkey
+        description: "Fremdschlüssel zur Bestellung"
+        data_tests:
+          - not_null
+
+      - name: linenumber
+        description: "Positionsnummer"
+        data_tests:
+          - not_null
+
+      - name: custkey
+        description: "Fremdschlüssel zum Kunden"
+
+      - name: orderdate
+        description: "Bestelldatum"
+
+      - name: shipdate
+        description: "Versanddatum"
+
+      - name: commitdate
+        description: "Zusagedatum"
+
+      - name: receiptdate
+        description: "Eingangsdatum"
+
+      - name: quantity
+        description: "Bestellmenge"
+        data_tests:
+          - not_negative
+
+      - name: extendedprice
+        description: "Erweiterter Preis"
+        data_tests:
+          - not_negative
+
+      - name: discount
+        description: "Rabatt"
+
+      - name: tax
+        description: "Steuersatz"
+
+      - name: net_amount
+        description: "Nettobetrag der Position (extendedprice * (1 - discount))"
+        data_tests:
+          - not_negative
+
+      - name: discount_amount
+        description: "Rabattbetrag der Position (extendedprice * discount)"
+
+      - name: net_amount_incl_tax
+        description: "Nettobetrag inkl. Steuer"
+
+      - name: is_late_shipment
+        description: "True, wenn shipdate > commitdate"
+
+      - name: days_to_ship
+        description: "Tage zwischen Bestelldatum und Versanddatum"
+
+      - name: days_to_receive
+        description: "Tage zwischen Bestelldatum und Eingangsdatum"

@@ -1,0 +1,19 @@
+models:
+  - name: mart__orders_per_customer
+    description: "Aggregation der Bestellungen pro Kunde und Jahr. Zeigt die Anzahl der Bestellungen je Kunde, Segment und Jahr."
+
+    columns:
+      - name: customer_id
+        description: "Kunden-ID"
+
+      - name: customer_name
+        description: "Kundenname"
+
+      - name: market_segment
+        description: "Marktsegment"
+
+      - name: order_year
+        description: "Bestelljahr"
+
+      - name: total_orders
+        description: "Gesamtanzahl der Bestellungen"

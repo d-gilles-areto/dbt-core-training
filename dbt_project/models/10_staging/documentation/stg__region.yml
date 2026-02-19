@@ -1,0 +1,16 @@
+models:
+  - name: stg__region
+    description: "Staging-View für TPCH Region. Präfixe entfernt."
+
+    columns:
+      - name: regionkey
+        description: "Primärschlüssel der Region"
+        data_tests:
+          - unique
+          - not_null
+
+      - name: name
+        description: "Name der Region"
+
+      - name: comment
+        description: "Kommentar"

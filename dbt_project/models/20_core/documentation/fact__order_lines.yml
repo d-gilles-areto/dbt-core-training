@@ -1,0 +1,46 @@
+models:
+  - name: fact__orders
+    description: "Fakten-Tabelle auf Order-Grain. Enthält aggregierte Kennzahlen aus Order Lines. Materialisiert als Incremental (Merge)."
+
+    columns:
+      - name: orderkey
+        description: "Primärschlüssel der Bestellung"
+        data_tests:
+          - unique
+          - not_null
+
+      - name: custkey
+        description: "Fremdschlüssel zum Kunden"
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim__customer')
+                field: customer_id
+
+      - name: orderdate
+        description: "Bestelldatum"
+
+      - name: orderstatus
+        description: "Status der Bestellung"
+
+      - name: orderpriority
+        description: "Bestellpriorität"
+
+      - name: order_line_count
+        description: "Anzahl der Positionen in der Bestellung"
+        data_tests:
+          - not_negative
+
+      - name: order_net_amount
+        description: "Gesamter Nettobetrag der Bestellung"
+        data_tests:
+          - not_negative
+
+      - name: order_discount_amount
+        description: "Gesamter Rabattbetrag der Bestellung"
+
+      - name: order_net_amount_incl_tax
+        description: "Nettobetrag inkl. Steuer"
+
+      - name: has_late_shipment
+        description: "True, wenn mindestens eine Position verspätet versendet wurde"

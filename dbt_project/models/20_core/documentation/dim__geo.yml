@@ -1,0 +1,16 @@
+models:
+  - name: dim__geo
+    description: "Konforme Geografie-Dimension: Nation + Region konsolidiert."
+
+    columns:
+      - name: nationkey
+        description: "Primärschlüssel der Nation"
+        data_tests:
+          - unique
+          - not_null
+
+      - name: nation
+        description: "Name des Landes"
+
+      - name: region
+        description: "Name der Region"
