@@ -1,13 +1,23 @@
 models:
   - name: mart__orders_per_customer
     description: "Aggregation der Bestellungen pro Kunde und Jahr. Zeigt die Anzahl der Bestellungen je Kunde, Segment und Jahr."
+    config:
+      tags:
+        - "tpch"
 
     columns:
       - name: customer_id
         description: "Kunden-ID"
+        config:
+          tags:
+            - "pii"
 
       - name: customer_name
         description: "Kundenname"
+        config:
+          tags:
+            - "pii"
+
 
       - name: market_segment
         description: "Marktsegment"
