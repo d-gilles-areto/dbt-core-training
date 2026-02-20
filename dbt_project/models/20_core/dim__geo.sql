@@ -1,5 +1,5 @@
 SELECT
-    nation.nationkey,
+    nation.nationkey AS nation_id,
     nation.name AS nation,
     region.name AS region,
     nation.created_at

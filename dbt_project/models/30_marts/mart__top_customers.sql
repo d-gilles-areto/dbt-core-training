@@ -1,5 +1,5 @@
 WITH orders AS (
-    SELECT * FROM {{ ref('fact_orders') }}  -- BUG: Missing double underscore
+    SELECT * FROM {{ ref('fact__orders') }}
 ),
 
 customer AS (
@@ -7,9 +7,9 @@ customer AS (
 )
 
 SELECT
-    customer.custkey,
-    customer.customer_name,  -- BUG: Wrong column name (should be 'name')
-    customer.mktsegment,
+    customer.customer_id,
+    customer.customer_name,
+    customer.market_segment,
     COUNT(*) AS total_orders,
     SUM(orders.total_net_amount) AS total_revenue,
     ROUND(
@@ -18,10 +18,10 @@ SELECT
     ) AS avg_order_value
 
 FROM orders
-    LEFT JOIN customer ON orders.custkey = customer.custkey
+    LEFT JOIN customer ON orders.customer_id = customer.customer_id
     
 GROUP BY
-    customer.custkey,
+    customer.customer_id,
     customer.customer_name,
-    customer.mktsegment
+    customer.market_segment
 ORDER BY total_revenue DESC

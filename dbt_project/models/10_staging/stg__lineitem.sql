@@ -14,6 +14,6 @@ SELECT
     l_shipmode AS shipmode,
     l_linenumber AS linenumber,
     l_shipinstruct AS shipinstruct,
-    l_comment AS comment
+    l_comment AS comment,
     created_at
 FROM {{ source('tpch', 'lineitem_tpch') }}
