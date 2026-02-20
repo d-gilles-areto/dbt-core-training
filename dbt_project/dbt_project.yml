@@ -31,14 +31,3 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   dbt_project:
-    +persist_docs:
-      relation: true
-      columns: true
-
-snapshots:
-  dbt_project:
-    +schema: snapshots
-    +tags:
-        - "snapshots"
-    +docs:
-        node_color: "#C77A7A"
