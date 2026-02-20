@@ -1,8 +1,3 @@
-WITH customer AS (
-    SELECT *
-    FROM {{ ref('stg__customer') }}
-)
-
 SELECT
     custkey AS customer_id,
     name AS customer_name,
