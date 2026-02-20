@@ -4,7 +4,4 @@ SELECT
     COUNT(*)        AS customer_count
 
 FROM {{ ref('dim__customer') }} AS customer
-LEFT JOIN {{ ref('dim__geo') }} AS geo ON customer.nation_id = geo.nation_id
-
-GROUP BY geo.nation, geo.region
-ORDER BY geo.region, geo.nation
+LEFT JOIN {{ ref('dim__geo') }} AS geo ON customer.nationkey = geo.nationkey

@@ -1,0 +1,110 @@
+version: 2
+
+models:
+  - name: stg__customer
+    description: "Staging: Customer Daten"
+    columns:
+      - name: custkey
+        description: "Customer Key"
+      - name: name
+        description: "Customer Name"
+      - name: address
+        description: "Adresse"
+      - name: nationkey
+        description: "Nation Key"
+      - name: phone
+        description: "Telefonnummer"
+      - name: acctbal
+        description: "Account Balance"
+      - name: mktsegment
+        description: "Market Segment"
+      - name: comment
+        description: "Kommentar"
+      - name: created_at
+        description: "Erstellungszeitstempel"
+
+  - name: stg__orders
+    description: "Staging: Orders"
+    columns:
+      - name: orderkey
+        description: "Order Key"
+      - name: custkey
+        description: "Customer Key"
+      - name: orderdate
+        description: "Order Date"
+      - name: orderstatus
+        description: "Order Status"
+      - name: orderpriority
+        description: "Order Priority"
+      - name: clerk
+        description: "Clerk ID"
+      - name: shippriority
+        description: "Shipping Priority"
+      - name: comment
+        description: "Kommentar"
+      - name: created_at
+        description: "Erstellungszeitstempel"
+
+  - name: stg__lineitem
+    description: "Staging: Order Line Items"
+    columns:
+      - name: orderkey
+        description: "Order Key"
+      - name: linenumber
+        description: "Line Number"
+      - name: partkey
+        description: "Part Key"
+      - name: suppkey
+        description: "Supplier Key"
+      - name: quantity
+        description: "Quantity"
+      - name: extendedprice
+        description: "Extended Price"
+      - name: discount
+        description: "Discount"
+      - name: tax
+        description: "Tax"
+      - name: returnflag
+        description: "Return Flag"
+      - name: linestatus
+        description: "Line Status"
+      - name: shipdate
+        description: "Ship Date"
+      - name: commitdate
+        description: "Commit Date"
+      - name: receiptdate
+        description: "Receipt Date"
+      - name: shipinstruct
+        description: "Shipping Instructions"
+      - name: shipmode
+        description: "Shipping Mode"
+      - name: comment
+        description: "Kommentar"
+      - name: created_at
+        description: "Erstellungszeitstempel"
+
+  - name: stg__nation
+    description: "Staging: Nations"
+    columns:
+      - name: nationkey
+        description: "Nation Key"
+      - name: name
+        description: "Nation Name"
+      - name: regionkey
+        description: "Region Key"
+      - name: comment
+        description: "Kommentar"
+      - name: created_at
+        description: "Erstellungszeitstempel"
+
+  - name: stg__region
+    description: "Staging: Regions"
+    columns:
+      - name: regionkey
+        description: "Region Key"
+      - name: name
+        description: "Region Name"
+      - name: comment
+        description: "Kommentar"
+      - name: created_at
+        description: "Erstellungszeitstempel"

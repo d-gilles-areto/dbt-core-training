@@ -1,0 +1,58 @@
+version: 2
+
+models:
+  - name: mart__orders_per_customer
+    description: "Mart: Orders pro Customer mit Jahresaufteilung"
+    columns:
+      - name: custkey
+        description: "Customer Key"
+      - name: name
+        description: "Customer Name"
+      - name: mktsegment
+        description: "Market Segment"
+      - name: order_year
+        description: "Bestellungsjahr"
+      - name: total_orders
+        description: "Gesamtanzahl Bestellungen"
+
+  - name: mart__customer_per_country
+    description: "Mart: Kundenanzahl pro Land/Region"
+    columns:
+      - name: nation
+        description: "Nation Name"
+      - name: region
+        description: "Region Name"
+      - name: customer_count
+        description: "Anzahl Kunden"
+
+  - name: mart__shipping_performance_monthly
+    description: "Mart: Versandleistung monatlich"
+    columns:
+      - name: ship_month
+        description: "Versand-Monat"
+      - name: total_lines
+        description: "Gesamtanzahl Linien"
+      - name: late_lines
+        description: "Verspätete Linien"
+      - name: late_line_rate_pct
+        description: "Prozentsatz verspätete Linien"
+      - name: avg_days_to_ship
+        description: "Durchschnittliche Tage bis Versand"
+      - name: revenue_net
+        description: "Netto-Umsatz"
+
+  - name: mart__top_customers
+    description: "Mart: Top Customers nach Revenue"
+    columns:
+      - name: custkey
+        description: "Customer Key"
+      - name: name
+        description: "Customer Name"
+      - name: mktsegment
+        description: "Market Segment"
+      - name: total_orders
+        description: "Gesamtanzahl Bestellungen"
+      - name: total_revenue
+        description: "Gesamter Umsatz"
+      - name: avg_order_value
+        description: "Durchschnittliche Bestellungswert"

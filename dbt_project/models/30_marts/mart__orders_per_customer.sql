@@ -7,21 +7,20 @@ customer AS (
 )
 
 SELECT
-    customer.customer_id,
-    customer.customer_name,
-    customer.market_segment,
-    EXTRACT(YEAR FROM orders.order_date) AS order_year,
+    customer.custkey,
+    customer.name,
+    customer.mktsegment,
+    EXTRACT(YEAR FROM orders.orderdate) AS order_year,
     COUNT(*) AS total_orders
 
 FROM orders
-LEFT JOIN customer ON orders.customer_id = customer.customer_id
+LEFT JOIN customer ON orders.custkey = customer.custkey
 
 GROUP BY
-    customer.customer_id,
-    customer.customer_name,
-    customer.market_segment,
-    EXTRACT(YEAR FROM orders.order_date)
+    customer.custkey,
+    customer.name,
+    customer.mktsegment,
+    EXTRACT(YEAR FROM orders.orderdate)
 
 ORDER BY
-    customer.customer_id,
-    order_year
+    customer.custkey,

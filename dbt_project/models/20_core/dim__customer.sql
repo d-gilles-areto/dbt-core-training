@@ -4,12 +4,13 @@ WITH customer AS (
 )
 
 SELECT
-    customer.custkey AS customer_id,
-    customer.name AS customer_name,
+    customer.custkey,
+    customer.name,
     customer.address,
     customer.phone,
-    customer.acctbal AS account_balance,
-    customer.mktsegment AS market_segment,
-    customer.comment AS customer_comment,
-    customer.nationkey AS nation_id
+    customer.acctbal,
+    customer.mktsegment,
+    customer.comment,
+    customer.nationkey,
+    customer.created_at
 FROM customer

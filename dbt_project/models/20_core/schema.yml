@@ -1,0 +1,112 @@
+version: 2
+
+models:
+  - name: dim__customer
+    description: "Dimension: Customer"
+    columns:
+      - name: custkey
+        description: "Customer Key"
+      - name: name
+        description: "Customer Name"
+      - name: address
+        description: "Adresse"
+      - name: phone
+        description: "Telefonnummer"
+      - name: acctbal
+        description: "Account Balance"
+      - name: mktsegment
+        description: "Market Segment"
+      - name: comment
+        description: "Kommentar"
+      - name: nationkey
+        description: "Nation Key"
+      - name: created_at
+        description: "Erstellungszeitstempel"
+
+  - name: dim__geo
+    description: "Dimension: Geography (Nation + Region)"
+    columns:
+      - name: nationkey
+        description: "Nation Key"
+      - name: nation
+        description: "Nation Name"
+      - name: region
+        description: "Region Name"
+      - name: created_at
+        description: "Erstellungszeitstempel"
+
+  - name: fact__orders
+    description: "Fact: Orders mit aggregierten Order Lines"
+    columns:
+      - name: orderkey
+        description: "Order Key"
+      - name: custkey
+        description: "Customer Key"
+      - name: orderdate
+        description: "Order Date"
+      - name: orderstatus
+        description: "Order Status"
+      - name: orderpriority
+        description: "Order Priority"
+      - name: line_count
+        description: "Anzahl Order Lines"
+      - name: total_net_amount
+        description: "Summe Netto-Beträge"
+      - name: total_discount_amount
+        description: "Summe Rabatte"
+      - name: total_net_amount_incl_tax
+        description: "Summe Netto + Steuer"
+      - name: has_late_shipment
+        description: "True wenn verspätete Lieferungen"
+      - name: created_at
+        description: "Erstellungszeitstempel"
+
+  - name: fact__order_lines
+    description: "Fact: Order Line Items"
+    columns:
+      - name: orderkey
+        description: "Order Key"
+      - name: linenumber
+        description: "Line Number"
+      - name: custkey
+        description: "Customer Key"
+      - name: orderdate
+        description: "Order Date"
+      - name: shipdate
+        description: "Ship Date"
+      - name: commitdate
+        description: "Commit Date"
+      - name: receiptdate
+        description: "Receipt Date"
+      - name: orderstatus
+        description: "Order Status"
+      - name: orderpriority
+        description: "Order Priority"
+      - name: returnflag
+        description: "Return Flag"
+      - name: linestatus
+        description: "Line Status"
+      - name: shipmode
+        description: "Shipping Mode"
+      - name: quantity
+        description: "Quantity"
+      - name: extendedprice
+        description: "Extended Price"
+      - name: discount
+        description: "Discount"
+      - name: tax
+        description: "Tax"
+      - name: net_amount
+        description: "Netto-Betrag"
+      - name: discount_amount
+        description: "Rabatt-Betrag"
+      - name: net_amount_incl_tax
+        description: "Netto + Steuer"
+      - name: is_late_shipment
+        description: "True wenn verspätet"
+      - name: days_to_ship
+        description: "Tage bis Versand"
+      - name: days_to_receive
+        description: "Tage bis Empfang"
+      - name: created_at
+        description: "Erstellungszeitstempel"

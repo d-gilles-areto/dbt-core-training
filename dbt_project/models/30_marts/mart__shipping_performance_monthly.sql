@@ -3,7 +3,7 @@ WITH order_lines AS (
 )
 
 SELECT
-    DATE_TRUNC('month', ship_date)::date        AS ship_month,
+    DATE_TRUNC('month', shipdate)::date         AS ship_month,
     COUNT(*)                                    AS total_lines,
     SUM(
         CASE WHEN is_late_shipment THEN 1 ELSE 0 END
@@ -21,5 +21,4 @@ SELECT
     SUM(net_amount)                             AS revenue_net
 
 FROM order_lines
-GROUP BY DATE_TRUNC('month', ship_date)
-ORDER BY ship_month
+GROUP BY DATE_TRUNC('month', shipdate)
