@@ -38,11 +38,17 @@ models:
     10_staging:
       +materialized: view
       +schema: staging
+      +tags:
+        - "staging"
 
     20_core:
       +materialized: view
       +schema: core
+      +tags:
+        - "core"
 
     30_marts:
       +materialized: table
       +schema: marts
+      +tags:
+        - "marts"
