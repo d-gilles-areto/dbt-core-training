@@ -1,0 +1,5 @@
+sources:
+  - name: tpch
+    schema: sources
+    tables:
+      - name: customer_tpch
