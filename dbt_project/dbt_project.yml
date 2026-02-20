@@ -38,11 +38,31 @@ models:
     10_staging:
       +materialized: view
       +schema: staging
+      +tags:
+        - "staging"
+      +docs:
+        node_color: "#6FAF9A"
 
     20_core:
       +materialized: view
       +schema: core
+      +tags:
+        - "core"
+      +docs:
+        node_color: "#7487C8"
 
     30_marts:
       +materialized: table
       +schema: marts
+      +tags:
+        - "marts"
+      +docs:
+        node_color: "#C8A24A"
+
+snapshots:
+  dbt_project:
+    +schema: snapshots
+    +tags:
+        - "snapshots"
+    +docs:
+        node_color: "#C77A7A"
