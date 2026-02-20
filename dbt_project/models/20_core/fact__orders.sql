@@ -1,8 +1,3 @@
-{{ config(
-    materialized = 'incremental'
-	) 
-}}
-
 WITH orders AS (
     SELECT * FROM {{ ref('stg__orders') }}
 ),
@@ -33,7 +28,3 @@ SELECT
     orders.created_at
 FROM orders
     LEFT JOIN line_aggs ON orders.orderkey = line_aggs.orderkey
-
-{% if is_incremental() %}
-    WHERE orders.created_at > (SELECT MAX(created_at) FROM {{ this }})
-{% endif %}
