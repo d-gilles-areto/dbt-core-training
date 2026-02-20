@@ -1,5 +1,5 @@
 WITH orders AS (
-    SELECT * FROM {{ ref('stg__orders') }}
+    SELECT * FROM {{ ref('st__orders') }}
 ),
 
 order_lines AS (

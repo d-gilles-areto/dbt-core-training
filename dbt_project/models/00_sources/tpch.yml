@@ -5,5 +5,5 @@ sources:
       - name: customer_tpch
       - name: nation_tpch
       - name: region_tpch
-      - name: orders_tpch
+
       - name: lineitem_tpch
