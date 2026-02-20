@@ -1,5 +1,5 @@
 WITH orders AS (
-    SELECT * FROM {{ ref('fact__orders') }}
+    SELECT * FROM {{ ref('fact_orders') }}  -- BUG: Missing double underscore
 ),
 
 customer AS (
@@ -8,7 +8,7 @@ customer AS (
 
 SELECT
     customer.custkey,
-    customer.name,
+    customer.customer_name,  -- BUG: Wrong column name (should be 'name')
     customer.mktsegment,
     COUNT(*) AS total_orders,
     SUM(orders.total_net_amount) AS total_revenue,
@@ -22,5 +22,6 @@ FROM orders
     
 GROUP BY
     customer.custkey,
-    customer.name,
+    customer.customer_name,
     customer.mktsegment
+ORDER BY total_revenue DESC
