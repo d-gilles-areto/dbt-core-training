@@ -19,11 +19,11 @@ line_aggs AS (
 )
 
 SELECT
-    orders.orderkey AS order_id,
-    orders.custkey AS customer_id,
-    orders.orderdate AS order_date,
-    orders.orderstatus AS order_status,
-    orders.orderpriority AS order_priority,
+    orders.orderkey         AS order_id,
+    orders.custkey          AS customer_id,
+    orders.orderdate        AS order_date,
+    orders.orderstatus      AS order_status,
+    orders.orderpriority    AS order_priority,
     line_aggs.line_count,
     line_aggs.total_net_amount,
     line_aggs.total_discount_amount,
