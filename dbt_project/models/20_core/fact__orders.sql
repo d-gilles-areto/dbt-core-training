@@ -32,9 +32,10 @@ SELECT
     line_aggs.order_discount_amount,
     line_aggs.order_net_amount_incl_tax,
     line_aggs.has_late_shipment
+    orders.created_at,
 FROM orders
     LEFT JOIN line_aggs ON orders.orderkey = line_aggs.order_id
 
 {% if is_incremental() %}
-    WHERE orders.orderdate > (SELECT MAX(order_date) FROM {{ this }})
+    WHERE orders.created_at > (SELECT MAX(created_at) FROM {{ this }})
 {% endif %}
