@@ -1,6 +1,9 @@
 models:
   - name: mart__shipping_performance_monthly
     description: "Monatliche Versandperformance: Verspätungsrate, durchschnittliche Versanddauer und Umsatz."
+    config:
+      tags:
+        - "tpch"
 
     columns:
       - name: ship_month
