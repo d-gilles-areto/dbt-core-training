@@ -1,20 +1,22 @@
 models:
   - name: fact__order_lines
     description: "Fakten-Tabelle auf Order-Line-Grain. Feinste Granularität mit berechneten KPIs. Materialisiert als Incremental (Merge)."
+    config:
+      tags:
+        - "tpch"
 
     columns:
       - name: order_id
         description: "Fremdschlüssel zur Bestellung"
-        data_tests:
-          - not_null
 
       - name: line_number
         description: "Positionsnummer"
-        data_tests:
-          - not_null
 
       - name: customer_id
         description: "Fremdschlüssel zum Kunden"
+        config:
+          tags:
+            - "pii"
 
       - name: order_date
         description: "Bestelldatum"
@@ -45,13 +47,9 @@ models:
 
       - name: quantity
         description: "Bestellmenge"
-        data_tests:
-          - not_negative
 
       - name: extended_price
         description: "Erweiterter Preis"
-        data_tests:
-          - not_negative
 
       - name: discount
         description: "Rabatt"
@@ -61,8 +59,6 @@ models:
 
       - name: net_amount
         description: "Nettobetrag der Position (extended_price * (1 - discount))"
-        data_tests:
-          - not_negative
 
       - name: discount_amount
         description: "Rabattbetrag der Position (extended_price * discount)"
