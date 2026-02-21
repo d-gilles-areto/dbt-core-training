@@ -1,6 +1,9 @@
 models:
   - name: dim__geo
     description: "Konforme Geografie-Dimension: Nation + Region konsolidiert."
+    config:
+      tags:
+        - "tpch"
 
     columns:
       - name: nation_id

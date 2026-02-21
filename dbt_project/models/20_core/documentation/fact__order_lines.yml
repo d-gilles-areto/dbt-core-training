@@ -1,6 +1,9 @@
 models:
   - name: fact__order_lines
     description: "Fakten-Tabelle auf Order-Line-Grain. Feinste Granularität mit berechneten KPIs. Materialisiert als Incremental (Merge)."
+    config:
+      tags:
+        - "tpch"
 
     columns:
       - name: order_id
@@ -15,6 +18,9 @@ models:
 
       - name: customer_id
         description: "Fremdschlüssel zum Kunden"
+        config:
+          tags:
+            - "pii"
 
       - name: order_date
         description: "Bestelldatum"
