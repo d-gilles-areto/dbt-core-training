@@ -1,13 +1,22 @@
 models:
   - name: mart__top_customers
     description: "Top-Kunden nach Umsatz mit geografischem Kontext."
+    config:
+      tags:
+        - "tpch"
 
     columns:
       - name: customer_id
         description: "Kunden-ID"
+        config:
+          tags:
+            - "pii"
 
       - name: customer_name
         description: "Kundenname"
+        config:
+          tags:
+            - "pii"
 
       - name: market_segment
         description: "Marktsegment"
@@ -26,3 +35,5 @@ models:
 
       - name: avg_order_value
         description: "Durchschnittlicher Bestellwert"
+
+##### TO DO: Generic Tests

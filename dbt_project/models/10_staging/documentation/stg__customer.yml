@@ -1,6 +1,9 @@
 models:
   - name: stg__customer
     description: "Staging-View für TPCH Customer. Präfixe entfernt, 1:1 Abbildung der Quelldaten."
+    config:
+      tags:
+        - "tpch"
 
     columns:
       - name: custkey
@@ -8,9 +11,15 @@ models:
         data_tests:
           - unique
           - not_null
+        config:
+          tags:
+            - "pii"
 
       - name: name
         description: "Name des Kunden"
+        config:
+          tags:
+            - "pii"
 
       - name: mktsegment
         description: "Marktsegment des Kunden (z.B. AUTOMOBILE, BUILDING)"
@@ -20,9 +29,15 @@ models:
 
       - name: address
         description: "Adresse des Kunden"
+        config:
+          tags:
+            - "pii"
 
       - name: phone
         description: "Telefonnummer des Kunden"
+        config:
+          tags:
+            - "pii"
 
       - name: acctbal
         description: "Kontostand des Kunden"

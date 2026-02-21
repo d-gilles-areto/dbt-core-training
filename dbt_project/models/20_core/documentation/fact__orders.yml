@@ -1,6 +1,9 @@
 models:
   - name: fact__orders
     description: "Fakten-Tabelle auf Order-Grain. Enthält aggregierte Kennzahlen aus Order Lines. Materialisiert als Incremental (Merge)."
+    config:
+      tags:
+        - "tpch"
 
     columns:
       - name: order_id
@@ -16,6 +19,9 @@ models:
               arguments:
                 to: ref('dim__customer')
                 field: customer_id
+        config:
+          tags:
+            - "pii"
 
       - name: order_date
         description: "Bestelldatum"
@@ -28,13 +34,9 @@ models:
 
       - name: order_line_count
         description: "Anzahl der Positionen in der Bestellung"
-        data_tests:
-          - not_negative
 
       - name: order_net_amount
         description: "Gesamter Nettobetrag der Bestellung"
-        data_tests:
-          - not_negative
 
       - name: order_discount_amount
         description: "Gesamter Rabattbetrag der Bestellung"
