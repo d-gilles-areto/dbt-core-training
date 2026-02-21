@@ -1,6 +1,9 @@
 models:
   - name: fact__orders
     description: "Fakten-Tabelle auf Order-Grain. Enthält aggregierte Kennzahlen aus Order Lines. Materialisiert als Incremental (Merge)."
+    config:
+      tags:
+        - "tpch"
 
     columns:
       - name: order_id
@@ -16,6 +19,9 @@ models:
               arguments:
                 to: ref('dim__customer')
                 field: customer_id
+        config:
+          tags:
+            - "pii"
 
       - name: order_date
         description: "Bestelldatum"

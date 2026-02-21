@@ -1,6 +1,9 @@
 models:
   - name: stg__nation
     description: "Staging-View für TPCH Nation. Präfixe entfernt."
+    config:
+      tags:
+        - "tpch"
 
     columns:
       - name: nationkey

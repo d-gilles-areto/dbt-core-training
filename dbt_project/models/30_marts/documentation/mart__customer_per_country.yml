@@ -1,6 +1,9 @@
 models:
   - name: mart__customer_per_country
     description: "Anzahl der Kunden pro Land und Region."
+    config:
+      tags:
+        - "tpch"
     
     columns:
       - name: nation
@@ -11,3 +14,5 @@ models:
 
       - name: customer_count
         description: "Anzahl der Kunden"
+
+##### TO DO: Generic Tests

@@ -1,6 +1,9 @@
 models:
   - name: stg__orders
     description: "Staging-View für TPCH Orders. Präfixe entfernt."
+    config:
+      tags:
+        - "tpch"
 
     columns:
       - name: orderkey
@@ -11,6 +14,9 @@ models:
 
       - name: custkey
         description: "Fremdschlüssel zum Kunden"
+        config:
+          tags:
+            - "pii"
 
       - name: orderdate
         description: "Bestelldatum"
