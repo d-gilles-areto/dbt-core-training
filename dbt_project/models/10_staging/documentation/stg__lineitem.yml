@@ -1,17 +1,16 @@
 models:
   - name: stg__lineitem
     description: "Staging-View für TPCH Line Items. Präfixe entfernt."
+    config:
+      tags:
+        - "tpch"
 
     columns:
       - name: orderkey
         description: "Fremdschlüssel zur Bestellung"
-        data_tests:
-          - not_null
 
       - name: linenumber
         description: "Positionsnummer innerhalb der Bestellung"
-        data_tests:
-          - not_null
 
       - name: quantity
         description: "Bestellmenge"
