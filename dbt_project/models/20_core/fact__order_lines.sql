@@ -41,3 +41,7 @@ SELECT
     lineitem.created_at
 FROM lineitem
     LEFT JOIN orders ON lineitem.orderkey = orders.orderkey
+
+{% if is_incremental() %}
+    WHERE lineitem.created_at > (SELECT MAX(created_at) FROM {{ this }})
+{% endif %}
