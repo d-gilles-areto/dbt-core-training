@@ -1,6 +1,9 @@
 models:
   - name: mart__shipping_performance_monthly
     description: "Monatliche Versandperformance: Verspätungsrate, durchschnittliche Versanddauer und Umsatz."
+    config:
+      tags:
+        - "tpch"
 
     columns:
       - name: ship_month
@@ -20,3 +23,5 @@ models:
 
       - name: revenue_net
         description: "Netto-Umsatz"
+
+##### TO DO: Generic Tests

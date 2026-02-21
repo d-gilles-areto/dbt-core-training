@@ -1,6 +1,9 @@
 models:
   - name: stg__region
     description: "Staging-View für TPCH Region. Präfixe entfernt."
+    config:
+      tags:
+        - "tpch"
 
     columns:
       - name: regionkey

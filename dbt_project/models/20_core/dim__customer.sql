@@ -1,16 +1,11 @@
-WITH customer AS (
-    SELECT *
-    FROM {{ ref('stg__customer') }}
-)
-
 SELECT
-    customer.custkey,
-    customer.name,
-    customer.address,
-    customer.phone,
-    customer.acctbal,
-    customer.mktsegment,
-    customer.comment,
-    customer.nationkey,
-    customer.created_at
-FROM customer
+    custkey     AS customer_id,
+    name        AS customer_name,
+    address,
+    phone,
+    acctbal     AS account_balance,
+    mktsegment  AS market_segment,
+    comment     AS customer_comment,
+    nationkey   AS nation_id,
+    created_at
+FROM {{ ref('stg__customer') }}
