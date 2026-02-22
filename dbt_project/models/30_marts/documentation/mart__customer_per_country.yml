@@ -8,9 +8,13 @@ models:
     columns:
       - name: nation
         description: "Land"
+        data_tests:
+          - not_null
 
       - name: region
         description: "Region"
 
       - name: customer_count
         description: "Anzahl der Kunden"
+        data_tests:
+          - not_negative
