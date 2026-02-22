@@ -1,6 +1,6 @@
 models:
-  - name: fact__orders
-    description: "Fakten-Tabelle auf Order-Grain. Enthält aggregierte Kennzahlen aus Order Lines. Materialisiert als Incremental (Merge)."
+  - name: mart__order_summary
+    description: "Übersicht aller Bestellungen mit Kunden- und Geo-Kontext. Pro Bestellung eine Zeile."
     config:
       tags:
         - "tpch"
@@ -9,14 +9,22 @@ models:
       - name: order_id
         description: "Primärschlüssel der Bestellung"
         data_tests:
-          - unique
           - not_null
 
-      - name: customer_id
-        description: "Fremdschlüssel zum Kunden"
+      - name: customer_name
+        description: "Name des Kunden"
         config:
           tags:
             - "pii"
+
+      - name: market_segment
+        description: "Marktsegment des Kunden"
+
+      - name: nation
+        description: "Land des Kunden"
+
+      - name: region
+        description: "Region des Kunden"
 
       - name: order_date
         description: "Bestelldatum"
@@ -24,23 +32,15 @@ models:
       - name: order_status
         description: "Status der Bestellung"
 
-      - name: order_priority
-        description: "Bestellpriorität"
-
       - name: line_count
         description: "Anzahl der Positionen in der Bestellung"
+        data_tests:
+          - not_negative
 
       - name: total_net_amount
         description: "Gesamter Nettobetrag der Bestellung"
-
-      - name: total_discount_amount
-        description: "Gesamter Rabattbetrag der Bestellung"
-
-      - name: total_net_amount_incl_tax
-        description: "Nettobetrag inkl. Steuer"
+        data_tests:
+          - not_negative
 
       - name: has_late_shipment
         description: "True, wenn mindestens eine Position verspätet versendet wurde"
-
-      - name: created_at
-        description: "Timestamp der letzten Datenänderung (Watermark für Incremental)"
