@@ -7,6 +7,3 @@ sources:
       - name: nation_tpch
       - name: orders_tpch
       - name: region_tpch
-      - name: part_tpch
-      - name: partsupp_tpch
-      - name: supplier_tpch

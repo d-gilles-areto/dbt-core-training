@@ -11,6 +11,8 @@ models:
         config:
           tags:
             - "pii"
+        data_tests:
+          - not_null
 
       - name: customer_name
         description: "Kundenname"
@@ -21,19 +23,15 @@ models:
       - name: market_segment
         description: "Marktsegment"
 
-      - name: nation
-        description: "Land"
-
-      - name: region
-        description: "Region"
-
       - name: total_orders
         description: "Gesamtanzahl der Bestellungen"
+        data_tests:
+          - not_negative
 
       - name: total_revenue
         description: "Gesamtumsatz"
+        data_tests:
+          - not_negative
 
       - name: avg_order_value
         description: "Durchschnittlicher Bestellwert"
-
-##### TO DO: Generic Tests
