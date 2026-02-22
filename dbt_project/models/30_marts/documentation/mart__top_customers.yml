@@ -21,12 +21,6 @@ models:
       - name: market_segment
         description: "Marktsegment"
 
-      - name: nation
-        description: "Land"
-
-      - name: region
-        description: "Region"
-
       - name: total_orders
         description: "Gesamtanzahl der Bestellungen"
 
