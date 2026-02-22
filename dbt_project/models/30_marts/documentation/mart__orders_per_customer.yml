@@ -11,6 +11,8 @@ models:
         config:
           tags:
             - "pii"
+        data_tests:
+          - not_null
 
       - name: customer_name
         description: "Kundenname"
@@ -26,5 +28,5 @@ models:
 
       - name: total_orders
         description: "Gesamtanzahl der Bestellungen"
-
-##### TO DO: Generic Tests
+        data_tests:
+          - not_negative
