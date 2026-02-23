@@ -1,6 +1,6 @@
 SELECT
-    r_regionkey AS regionkey,
-    r_name      AS name,
-    r_comment   AS comment,
-    created_at
+    CAST(r_regionkey AS INTEGER)   AS regionkey,
+    CAST(r_name      AS TEXT)      AS name,
+    CAST(r_comment   AS TEXT)      AS comment,
+    CAST(created_at  AS TIMESTAMP) AS created_at
 FROM {{ source('tpch', 'region_tpch') }}
