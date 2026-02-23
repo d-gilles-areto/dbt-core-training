@@ -6,6 +6,7 @@ SELECT
     o_shippriority  AS shippriority,
     o_clerk         AS clerk,
     o_orderstatus   AS orderstatus,
+    o_totalprice    AS totalprice,
     o_comment       AS comment,
     created_at
 FROM {{ source('tpch', 'orders_tpch') }}
