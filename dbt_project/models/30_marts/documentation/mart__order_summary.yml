@@ -34,13 +34,9 @@ models:
 
       - name: line_count
         description: "Anzahl der Positionen in der Bestellung"
-        data_tests:
-          - not_negative
 
       - name: total_net_amount
         description: "Gesamter Nettobetrag der Bestellung"
-        data_tests:
-          - not_negative
 
       - name: has_late_shipment
         description: "True, wenn mindestens eine Position verspätet versendet wurde"

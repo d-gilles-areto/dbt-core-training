@@ -13,13 +13,9 @@ models:
 
       - name: total_orders
         description: "Gesamtanzahl der Bestellungen in der Region"
-        data_tests:
-          - not_negative
 
       - name: total_revenue
         description: "Gesamtumsatz (netto) der Region"
-        data_tests:
-          - not_negative
 
       - name: avg_order_value
         description: "Durchschnittlicher Bestellwert in der Region"

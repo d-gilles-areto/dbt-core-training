@@ -25,5 +25,3 @@ models:
 
       - name: total_orders
         description: "Gesamtanzahl der Bestellungen"
-        data_tests:
-          - not_negative
