@@ -1,16 +1,11 @@
 SELECT
-    c_custkey AS custkey,
-    c_mktsegment AS mktsegment,
-    c_nationkey AS nationkey,
-    c_name AS name,
-    c_address AS address,
-    c_phone AS phone,
-    c_acctbal AS acctbal,
-    c_comment AS comment
-FROM {{ source('tpch', 'customer_tpch') }}
-
--- bisherige Namenskonvention: c_ Präfix entfernt
-    -- sobald die Cases und Aufgaben definiert haben, können wir Namenskonventon erweitern
-        -- snake_case für Spalten
-        -- Abkürzungen ausschreiben
-        -- id statt key
+    CAST(c_custkey    AS INTEGER)   AS custkey,
+    CAST(c_mktsegment AS TEXT)      AS mktsegment,
+    CAST(c_nationkey  AS INTEGER)   AS nationkey,
+    CAST(c_name       AS TEXT)      AS name,
+    CAST(c_address    AS TEXT)      AS address,
+    CAST(c_phone      AS TEXT)      AS phone,
+    CAST(c_acctbal    AS NUMERIC)   AS acctbal,
+    CAST(c_comment    AS TEXT)      AS comment,
+    CAST(created_at   AS TIMESTAMP) AS created_at
+FROM {{ ref('snap__customer') }} -- Nachdem die Quelle für Customers über den Snapshot (./snapshots/snap__customer.sql) gem. SCD2 historisiert wurde, wollen wir nun die historisierte Quelle in der weiteren Pipeline benutzen.
