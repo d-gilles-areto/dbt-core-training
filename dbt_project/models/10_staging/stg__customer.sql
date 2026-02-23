@@ -8,4 +8,4 @@ SELECT
     CAST(c_acctbal    AS NUMERIC)   AS acctbal,
     CAST(c_comment    AS TEXT)      AS comment,
     CAST(created_at   AS TIMESTAMP) AS created_at
-FROM {{ ref('snap__customer') }} -- Nachdem die Quelle für Customers über den Snapshot (./snapshots/snap__customer.sql) gem. SCD2 historisiert wurde, wollen wir nun die historisierte Quelle in der weiteren Pipeline benutzen.
+FROM {{ source('tpch', 'customer_tpch') }}
