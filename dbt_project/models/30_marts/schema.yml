@@ -41,18 +41,14 @@ models:
       - name: revenue_net
         description: "Netto-Umsatz"
 
-  - name: mart__top_customers
-    description: "Mart: Top Customers nach Revenue"
+  - name: mart__revenue_by_region
+    description: "Mart: Umsatz, Bestellanzahl und durchschnittlicher Bestellwert nach Welthandelsregion"
     columns:
-      - name: custkey
-        description: "Customer Key"
-      - name: name
-        description: "Customer Name"
-      - name: mktsegment
-        description: "Market Segment"
+      - name: region
+        description: "Welthandelsregion (z.B. EUROPE, ASIA, AMERICA)"
       - name: total_orders
-        description: "Gesamtanzahl Bestellungen"
+        description: "Gesamtanzahl Bestellungen in der Region"
       - name: total_revenue
-        description: "Gesamter Umsatz"
+        description: "Gesamtumsatz (netto) der Region"
       - name: avg_order_value
-        description: "Durchschnittliche Bestellungswert"
+        description: "Durchschnittlicher Bestellwert in der Region"
