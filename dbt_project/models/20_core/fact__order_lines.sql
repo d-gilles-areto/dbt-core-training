@@ -1,7 +1,8 @@
 {{ config(
     materialized = 'incremental',
     incremental_strategy = 'merge',
-    unique_key = ['order_id', 'line_number']
+    unique_key = ['order_id', 'line_number'],
+    tags = ['tpch', 'fact']
 	) 
 }}
 

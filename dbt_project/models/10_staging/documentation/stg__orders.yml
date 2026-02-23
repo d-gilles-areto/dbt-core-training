@@ -25,8 +25,7 @@ models:
         description: "Status der Bestellung (O=Open, F=Filled, P=Pending)"
         data_tests:
           - accepted_values:
-              arguments:
-                values: ['O', 'F', 'P']
+              values: ['O', 'F', 'P']
 
       - name: orderpriority
         description: "Bestellpriorität"
