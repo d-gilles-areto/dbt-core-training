@@ -21,5 +21,3 @@ Du darfst jetzt offiziell Kaffee holen, PRs reviewen oder feierlich den letzten 
 
 Bei Fragen, Vertiefungswünschen oder wenn Ihr dbt im Unternehmen sauber aufsetzen bzw. weiterentwickeln möchtet:  
 **Meldet euch gern bei der areto group.** 
-
-🎉
