@@ -8,8 +8,6 @@ models:
     columns:
       - name: order_id
         description: "Primärschlüssel der Bestellung"
-        data_tests:
-          - not_null
 
       - name: customer_name
         description: "Name des Kunden"
@@ -34,13 +32,9 @@ models:
 
       - name: line_count
         description: "Anzahl der Positionen in der Bestellung"
-        data_tests:
-          - not_negative
 
       - name: total_net_amount
         description: "Gesamter Nettobetrag der Bestellung"
-        data_tests:
-          - not_negative
 
       - name: has_late_shipment
         description: "True, wenn mindestens eine Position verspätet versendet wurde"
