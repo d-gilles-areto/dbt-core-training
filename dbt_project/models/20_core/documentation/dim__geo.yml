@@ -7,13 +7,13 @@ models:
 
     columns:
       - name: nation_id
-        description: "Primärschlüssel der Nation"
+        description: '{{ doc("nation_id") }}'
         data_tests:
           - unique
           - not_null
 
       - name: nation
-        description: "Name des Landes"
+        description: '{{ doc("nation") }}'
 
       - name: region
-        description: "Name der Region"
+        description: '{{ doc("region") }}'

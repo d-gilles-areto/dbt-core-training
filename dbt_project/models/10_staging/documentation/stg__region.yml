@@ -7,13 +7,13 @@ models:
 
     columns:
       - name: regionkey
-        description: "Primärschlüssel der Region"
+        description: '{{ doc("region_id") }}'
         data_tests:
           - unique
           - not_null
 
       - name: name
-        description: "Name der Region"
+        description: '{{ doc("region") }}'
 
       - name: comment
         description: "Kommentar"

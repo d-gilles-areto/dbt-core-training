@@ -7,13 +7,13 @@ models:
 
     columns:
       - name: order_id
-        description: "Primärschlüssel der Bestellung"
+        description: '{{ doc("order_id") }}'
         data_tests:
           - unique
           - not_null
 
       - name: customer_id
-        description: "Fremdschlüssel zum Kunden"
+        description: '{{ doc("customer_id") }}'
         config:
           tags:
             - "pii"

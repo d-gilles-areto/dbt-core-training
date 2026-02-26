@@ -7,29 +7,29 @@ models:
 
     columns:
       - name: orderkey
-        description: "Primärschlüssel der Bestellung"
+        description: '{{ doc("order_id") }}'
         data_tests:
           - unique
           - not_null
 
       - name: custkey
-        description: "Fremdschlüssel zum Kunden"
+        description: '{{ doc("customer_id") }}'
         config:
           tags:
             - "pii"
 
       - name: orderdate
-        description: "Bestelldatum"
+        description: '{{ doc("order_date") }}'
 
       - name: orderstatus
-        description: "Status der Bestellung (O=Open, F=Filled, P=Pending)"
+        description: '{{ doc("order_status") }}'
         data_tests:
           - accepted_values:
               arguments:
                 values: ['O', 'F', 'P']
 
       - name: orderpriority
-        description: "Bestellpriorität"
+        description: '{{ doc("order_priority") }}'
 
       - name: shippriority
         description: "Versandpriorität"

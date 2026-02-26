@@ -16,25 +16,25 @@ models:
             - "pii"
 
       - name: name
-        description: "Name des Kunden"
+        description: '{{ doc("customer_name") }}'
         config:
           tags:
             - "pii"
 
       - name: mktsegment
-        description: "Marktsegment des Kunden (z.B. AUTOMOBILE, BUILDING)"
+        description: '{{ doc("market_segment") }}'
 
       - name: nationkey
-        description: "Fremdschlüssel zur Nation"
+        description: '{{ doc("nation_id") }}'
 
       - name: address
-        description: "Adresse des Kunden"
+        description: '{{ doc("address") }}'
         config:
           tags:
             - "pii"
 
       - name: phone
-        description: "Telefonnummer des Kunden"
+        description: '{{ doc("phone") }}'
         config:
           tags:
             - "pii"
@@ -43,4 +43,4 @@ models:
         description: "Kontostand des Kunden"
 
       - name: comment
-        description: "Kommentar"
+        description: '{{ doc("comment") }}'

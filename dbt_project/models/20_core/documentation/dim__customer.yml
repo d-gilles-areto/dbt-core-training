@@ -7,7 +7,7 @@ models:
 
     columns:
       - name: customer_id
-        description: "Primärschlüssel des Kunden"
+        description: '{{ doc("customer_id") }}'
         data_tests:
           - unique
           - not_null
@@ -16,7 +16,7 @@ models:
             - "pii"
 
       - name: customer_name
-        description: "Vollständiger Kundenname"
+        description: '{{ doc("customer_name") }}'
         config:
           tags:
             - "pii"
@@ -43,4 +43,4 @@ models:
         description: "Kommentar zum Kunden"
 
       - name: nation_id
-        description: "Fremdschlüssel zur Nation (nationkey)"
+        description: '{{ doc("nation_id") }}'

@@ -7,7 +7,7 @@ models:
 
     columns:
       - name: customer_id
-        description: "Kunden-ID"
+        description: '{{ doc("customer_id") }}'
         config:
           tags:
             - "pii"
@@ -15,7 +15,7 @@ models:
           - not_null
 
       - name: customer_name
-        description: "Kundenname"
+        description: '{{ doc("customer_name") }}'
         config:
           tags:
             - "pii"

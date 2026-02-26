@@ -7,7 +7,7 @@ models:
 
     columns:
       - name: orderkey
-        description: "Fremdschlüssel zur Bestellung"
+        description: '{{ doc("order_id") }}'
         data_tests:
           - not_null
 

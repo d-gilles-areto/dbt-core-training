@@ -7,12 +7,12 @@ models:
 
     columns:
       - name: order_id
-        description: "Primärschlüssel der Bestellung"
+        description: '{{ doc("order_id") }}'
         data_tests:
           - not_null
 
       - name: customer_name
-        description: "Name des Kunden"
+        description: '{{ doc("customer_name") }}'
         config:
           tags:
             - "pii"
@@ -21,10 +21,10 @@ models:
         description: "Marktsegment des Kunden"
 
       - name: nation
-        description: "Land des Kunden"
+        description: '{{ doc("nation") }}'
 
       - name: region
-        description: "Region des Kunden"
+        description: '{{ doc("region") }}'
 
       - name: order_date
         description: "Bestelldatum"
