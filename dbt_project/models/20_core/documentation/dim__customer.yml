@@ -1,6 +1,6 @@
 models:
   - name: dim__customer
-    description: "Kundendimension mit geografischem Kontext (Nation, Region)."
+    description: '{{ doc("dim__customer__model") }}'
     config:
       tags:
         - "tpch"

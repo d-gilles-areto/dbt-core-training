@@ -1,13 +1,13 @@
 models:
   - name: stg__customer
-    description: "Staging-View für TPCH Customer. Präfixe entfernt, 1:1 Abbildung der Quelldaten."
+    description: '{{ doc("stg__customer__model") }}'
     config:
       tags:
         - "tpch"
 
     columns:
       - name: custkey
-        description: "Primärschlüssel des Kunden"
+        description: '{{ doc("customer_id") }}'
         data_tests:
           - unique
           - not_null

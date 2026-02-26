@@ -1,6 +1,6 @@
 models:
   - name: mart__orders_per_customer
-    description: "Aggregation der Bestellungen pro Kunde. Zeigt die Anzahl der Bestellungen je Kunde und Segment."
+    description: '{{ doc("mart__orders_per_customer__model") }}'
     config:
       tags:
         - "tpch"
